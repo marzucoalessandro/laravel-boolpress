@@ -10,12 +10,20 @@ class MyController extends Controller
     {
       return view('home');
     }
+
     public function about()
     {
       return view('about');
     }
+
     public function blog()
     {
       return view('blog');
     }
+
+    public function posts_api()
+    {
+      return view('spa.posts');
+    }
+
 }
