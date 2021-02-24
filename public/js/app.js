@@ -2004,6 +2004,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38335,6 +38338,14 @@ var render = function() {
               _vm._v(
                 "\n                    Text: " +
                   _vm._s(post.body) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-header" }, [
+              _vm._v(
+                "\n                Created at: " +
+                  _vm._s(new Date(post.created_at).toLocaleString("it")) +
                   "\n                "
               )
             ])

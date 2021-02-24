@@ -8,6 +8,9 @@
                     <div class="card-body">
                         Text: {{ post.body}}
                     </div>
+                    <div class="card-header">
+                    Created at: {{ new Date(post.created_at).toLocaleString('it')}}
+                    </div>
                 </div>
             </div>
         </div>
