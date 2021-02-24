@@ -23,3 +23,10 @@ Route::get('posts', function(){
       'data' => App\Post::all()
     ], 200);
 });
+
+Route::get('categories', function(){
+    return response()->json([
+      'success' => true,
+      'data' => App\category::all()
+    ], 200);
+});
