@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="{asset (css/app.css)}">
     <title>singolo post</title>
   </head>
   <body>
@@ -13,6 +13,7 @@
           <th>ID</th>
           <th>title</th>
           <th>body</th>
+          <th>category</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +21,7 @@
           <td> {{$post->id}}</td>
           <td> {{$post->title}}</td>
           <td> {{$post->body}}</td>
+          <td> {{$post->category_id}}</td>
         </tr>
       </tbody>
     </table>
