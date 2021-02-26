@@ -7,23 +7,11 @@
   </head>
   <body>
     <h1>mostra singolo post</h1>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>title</th>
-          <th>body</th>
-          <th>category</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td> {{$post->id}}</td>
-          <td> {{$post->title}}</td>
-          <td> {{$post->body}}</td>
-          <td> {{$post->category_id}}</td>
-        </tr>
-      </tbody>
-    </table>
+
+          <h2>{{$post->id}}</h2>
+          <h3>Title: {{$post->title}}</h3>
+          <p>Text: {{$post->body}}</p>
+          <p>Category: {{ $post->category ? $post->category->name : "no category!" }}</p>
+
   </body>
   </html>

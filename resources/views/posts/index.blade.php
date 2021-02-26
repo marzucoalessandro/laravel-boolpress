@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Tabella dei Post</h1>
-
+    <a class="btn btn-info" href="{{route ('posts.create')}}">Crea nuovo post</a>
     <table class="table">
       <thead>
         <tr>
@@ -25,7 +25,7 @@
             <a href="{{route('posts.show', ['post'=> $item->id] )}}" class="btn btn-primary">View</a>
             <a href="{{route('posts.edit', ['post'=> $item->id] )}}" class="btn btn-success">Edit</a>
 
-            
+
             <form class="" action="{{route('posts.destroy', ['post'=> $item->id] )}}" method="post">
               @csrf
               @method('DELETE')
@@ -38,6 +38,6 @@
       </tbody>@endforeach
     </table>
 
-    <a class="primo" href="{{route ('posts.create')}}">Crea nuovo post</a>
+
   </body>
   </html>
