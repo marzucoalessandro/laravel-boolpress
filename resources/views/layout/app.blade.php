@@ -9,15 +9,16 @@
 
 
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+        <!-- Styles -->
+
     </head>
     <body>
-      <h1>mostra singolo post</h1>
 
-      <h2>{{$post->id}}</h2>
-      <h3>Title: {{$post->title}}</h3>
-      <p>Text: {{$post->body}}</p>
-      <p>Category: {{ $post->category ? $post->category->name : "no category!" }}</p>
+        <a href="{{ route ('home')}}">Home</a>
+        <a href="{{ route ('about')}}">About</a>
+        <a href="{{ route ('blog')}}">Blog</a>
 
-
-  </body>
-  </html>
+    </body>
+    @yield('content')
+</html>
