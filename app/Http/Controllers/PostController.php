@@ -104,6 +104,7 @@ class PostController extends Controller
       $validate = $request->validate([
         'title' => 'required',
         'body' => 'required',
+        'tags' => 'exists:tags,id'
       ]);
 
       // $data = $request->all();
