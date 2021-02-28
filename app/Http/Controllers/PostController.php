@@ -109,8 +109,8 @@ class PostController extends Controller
       // $data = $request->all();
       // $post->update($data);
       $post->update($validate);
-      // $post->tags()->sync()->($request->tags);
-      return redirect()->route('posts.index', $post);
+      $post->tags()->sync($request->tags);
+      return redirect()->route('posts.index');
 
     }
 

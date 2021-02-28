@@ -54,7 +54,7 @@
           <select class="form-control" name="tags[]" id="tags" multiple>
             @if($tags)
               @foreach($tags as $tag)
-                <option value="{{$tag->id}}" {{ $post->tags->contains($tag) ? 'selected' : ""}}>{{ $tag->name }}</option>
+                <option value="{{$tag->id}}" >{{ $tag->name }}</option>
               @endforeach
             @endif
           </select>
