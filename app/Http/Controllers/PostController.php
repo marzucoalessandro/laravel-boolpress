@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\category;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -26,7 +28,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $categories = category::all();
+        $tags = Tag::all();
+
+        return view('posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -42,6 +47,7 @@ class PostController extends Controller
       $validate = $request->validate([
         'title' => 'required',
         'body' => 'required',
+        'tags' => 'exists:tags,id'
       ]);
 
       Post::create($validate);
@@ -51,10 +57,11 @@ class PostController extends Controller
       // $post->body = request('body');
       // $post->save();
 
+      $new_post = Post::orderBy('id', 'desc')->first();
 
-
-
-      return redirect()->route('posts.index');
+      $categories = category::all();
+      $new_post->tags()->attach($request->tags);
+      return redirect()->route('posts.index', compact('categories', 'new_post'));
 
     }
 
@@ -79,7 +86,9 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         // dd($post);
-        return view('posts.edit', compact('post'));
+        $categories = category::all();
+        $tags = Tag::all();
+        return view('posts.edit', compact('post', 'tags', 'categories'));
     }
 
     /**
@@ -100,6 +109,7 @@ class PostController extends Controller
       // $data = $request->all();
       // $post->update($data);
       $post->update($validate);
+      // $post->tags()->sync()->($request->tags);
       return redirect()->route('posts.index', $post);
 
     }

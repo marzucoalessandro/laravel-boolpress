@@ -35,6 +35,34 @@
         @error('body')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
+
+        <div class="form-group">
+          <label for="category">category</label>
+          <select class="form-control" name="category" id="category">
+              @foreach($categories as $category)
+                <option value="{{$category->id}}">{{ $category->name }}</option>
+              @endforeach
+
+          </select>
+        </div>
+        @error('category')
+          <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
+        <div class="form-group">
+          <label for="tags">Tags</label>
+          <select class="form-control" name="tags[]" id="tags" multiple>
+            @if($tags)
+              @foreach($tags as $tag)
+                <option value="{{$tag->id}}" {{ $post->tags->contains($tag) ? 'selected' : ""}}>{{ $tag->name }}</option>
+              @endforeach
+            @endif
+          </select>
+        </div>
+        @error('tags')
+          <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
         <button type="submit" name="button">INVIA</button>
       </form>
     </body>
